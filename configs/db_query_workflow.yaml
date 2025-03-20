@@ -1,0 +1,48 @@
+functions:
+  analyze_query_results:
+    _type: aiq.tool/aiq_retriever
+    description: Analyze the query results
+  execute_sql_query:
+    _type: aiq.tool/aiq_retriever
+    description: Execute the validated SQL query
+  generate_report:
+    _type: aiq.tool/aiq_retriever
+    description: Generate a user-friendly report
+  generate_sql_query:
+    _type: aiq.tool/aiq_retriever
+    description: Generate an SQL query from the natural language query
+  get_database_schema:
+    _type: aiq.tool/aiq_retriever
+    description: Get the database schema information
+  parse_user_query:
+    _type: aiq.tool/aiq_retriever
+    description: Parse the user's natural language query
+  validate_sql_query:
+    _type: aiq.tool/aiq_retriever
+    description: Validate the SQL query
+llms:
+  ollama_llm:
+    _type: ollama
+    base_url: http://localhost:11434
+    model_name: deepseek-r1:14b
+    temperature: 0.0
+    num_ctx: 16384
+    num_thread: 12
+    num_gpu: 1
+    num_batch: 512
+    f16: true
+    rope_scaling: 1.0
+    mlock: true
+workflow:
+  _type: aiq.agent.tool_calling_agent/tool_calling_agent
+  llm: ollama_llm
+  tools:
+    - parse_user_query
+    - get_database_schema
+    - generate_sql_query
+    - validate_sql_query
+    - execute_sql_query
+    - analyze_query_results
+    - generate_report
+  system_prompt: "You are a helpful database assistant. You help users query SQL databases in natural language."
+  verbose: true 

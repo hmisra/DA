@@ -22,6 +22,9 @@ from aiq.builder.builder import Builder
 from src.utils.config import config
 from src.utils.logging import setup_logging, AgentLogger
 
+# Default config path using absolute path
+default_config_path = os.path.join(str(project_root), "configs", "db_query_workflow.yaml")
+
 logger = AgentLogger(agent_name="AgentIQRunner", agent_type="Script")
 
 async def run_with_query(config_path: str, query: str):
@@ -59,7 +62,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run the DB Query workflow using AgentIQ")
     parser.add_argument("--serve", action="store_true", help="Serve the workflow using the FastAPI frontend")
     parser.add_argument("--query", type=str, help="Natural language query to process")
-    parser.add_argument("--config", type=str, default="configs/db_query_workflow.yaml", 
+    parser.add_argument("--config", type=str, default=default_config_path, 
                         help="Path to workflow configuration file")
     args = parser.parse_args()
     
@@ -69,7 +72,7 @@ def main():
     if args.serve:
         # Serve the workflow using the FastAPI frontend
         from subprocess import run
-        cmd = ["aiq", "serve", args.config]
+        cmd = ["aiq", "serve", "--config_file", args.config]
         run(cmd)
     elif args.query:
         # Run the workflow with the query

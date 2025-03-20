@@ -25,7 +25,7 @@ llms:
     _type: ollama
     base_url: http://localhost:11434
     model_name: llama3
-    temperature: 0.0
+    temperature: 0.2
 workflow:
   _type: sequential
   steps:
