@@ -1,0 +1,52 @@
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python virtual environments
+venv/
+env/
+.env
+.venv/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.so
+.Python
+.coverage
+htmlcov/
+
+# Project specific
+.cursorrules
+.cursor/
+backup/
+logs/
+results/*.json
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Application logs
+*.log
+*.log.*
+
+# Temporary files
+tmp/
+temp/ 

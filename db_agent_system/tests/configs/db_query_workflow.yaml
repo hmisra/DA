@@ -1,0 +1,44 @@
+functions:
+  analyze_query_results:
+    _type: function
+    description: Analyze the query results
+  execute_sql_query:
+    _type: function
+    description: Execute the validated SQL query
+  generate_report:
+    _type: function
+    description: Generate a user-friendly report
+  generate_sql_query:
+    _type: function
+    description: Generate an SQL query from the natural language query
+  get_database_schema:
+    _type: function
+    description: Get the database schema information
+  parse_user_query:
+    _type: function
+    description: Parse the user's natural language query
+  validate_sql_query:
+    _type: function
+    description: Validate the SQL query
+llms:
+  ollama_llm:
+    _type: ollama
+    base_url: http://localhost:11434
+    model_name: llama3
+    temperature: 0.2
+workflow:
+  _type: sequential
+  steps:
+  - function_name: parse_user_query
+    llm: ollama_llm
+  - function_name: get_database_schema
+  - function_name: generate_sql_query
+    llm: ollama_llm
+  - function_name: validate_sql_query
+    llm: ollama_llm
+  - function_name: execute_sql_query
+  - function_name: analyze_query_results
+    llm: ollama_llm
+  - function_name: generate_report
+    llm: ollama_llm
+  verbose: true

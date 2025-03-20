@@ -1,4 +1,4 @@
-#!/Users/hmisra/Desktop/Crew/Data Analyst/DA/venv/bin/python
+#!/Users/hmisra/Desktop/DA/DA/venv/bin/python
 """A command line tool for extracting text and images from PDF and
 output it to plain text, html, xml or tags."""
 import argparse

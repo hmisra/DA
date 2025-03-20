@@ -1,0 +1,33 @@
+# Core frameworks
+agentiq[crewai]>=0.1.0  # NVIDIA AgentIQ with CrewAI integration
+langchain>=0.1.0  # LangChain for database tools and chains
+langchain-community>=0.0.16  # LangChain community extensions
+langchain-postgres>=0.0.1  # LangChain PostgreSQL integration
+crewai>=0.28.0  # CrewAI for multi-agent collaboration
+pydantic>=2.4.0  # For data validation
+
+# Database
+psycopg2-binary>=2.9.9  # PostgreSQL driver
+sqlalchemy>=2.0.0  # SQL toolkit and ORM
+
+# LLM integration
+ollama>=0.1.0  # Python client for Ollama
+langchain-ollama>=0.0.1  # LangChain integration for Ollama
+
+# Utilities
+python-dotenv>=1.0.0  # Environment variable management
+loguru>=0.7.0  # Better logging
+tqdm>=4.66.1  # Progress bars
+pyyaml>=6.0.0  # YAML processing for configuration files
+opentelemetry-api>=1.21.0  # Observability for AgentIQ
+opentelemetry-sdk>=1.21.0  # Observability for AgentIQ
+
+# Testing
+pytest>=7.4.0  # Testing framework
+pytest-cov>=4.1.0  # Test coverage
+pytest-mock>=3.11.1  # Mocking for tests
+testcontainers-postgres>=0.0.1rc1  # PostgreSQL container for testing
+
+# Type checking
+mypy>=1.5.1  # Static type checking
+types-requests>=2.31.0  # Type stubs for requests 

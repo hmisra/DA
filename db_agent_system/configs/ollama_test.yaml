@@ -1,0 +1,19 @@
+functions:
+  current_datetime:
+    _type: current_datetime
+
+llms:
+  ollama_llm:
+    _type: ollama
+    model_name: llama3.3:latest
+    temperature: 0
+
+workflow:
+  _type: react_agent
+  tool_names: [current_datetime]
+  llm_name: ollama_llm
+  verbose: true
+  retry_parsing_errors: true
+  max_retries: 3
+  handle_tool_errors: true
+  system_prompt: "You are a helpful assistant. You have access to the following tools: {tools}. To use the tools, you can use the format: Action: {tool_names}. For example: Action: current_datetime." 
